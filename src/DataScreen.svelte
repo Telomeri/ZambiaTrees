@@ -73,8 +73,8 @@ import { update_keyed_each } from "svelte/internal";
 		background-color: #465a27;
 	}*/
 	.chartGrowth{
-		margin-left: 10%;
-		margin-right: 10%;
+		margin-left: 2%;
+		margin-right: 2%;
 		text-align: center;
 		float: center;
 	}
