@@ -19,6 +19,7 @@
   },
   "dependencies": {
     "sirv-cli": "^1.0.0",
+    "svelte-counter": "^1.0.0",
     "svelte-frappe-charts": "^1.9.1",
     "uuid": "^8.3.2"
   }
