@@ -33,7 +33,7 @@ import { update_keyed_each } from "svelte/internal";
 		}]
 	};
 	let updateData = {
-		labels : ["Updated","Outdated"],
+		labels : ["Up To Date","Outdated"],
 		datasets: [{
 			values: updated
 		}]
@@ -60,9 +60,11 @@ import { update_keyed_each } from "svelte/internal";
 			<h1 class="planter">{counterResult.planters} Volunteers Active</h1>
 		</Counter>
 	</div>
-	<div class="pieChart"><Chart data={updateData} type='pie' maxSlices={2} height={300} colors={['#94FBAB','#464e3c']} font-family = {"Lucida Console", "Courier New", 'monospace'}/></div>
+	<h1 class="pieText">Trees that require an update</h1>
+	<div class="pieChart">
+		<Chart data={updateData} type='pie' maxSlices={2} height={300} colors={['#94FBAB','#464e3c']} /></div>
 	<div class="chartGrowth">
-		<p>Growth state</p>
+		<h1>Growth state</h1>
 		<Chart data={growthData} type='percentage' barOptions ={{height: 25, depth: 10}} colors={['#7F675B','#94FBAB','#058C42','#464e3c']} height={150} maxSlices = {5}/>
 	</div>
 </body>
@@ -76,13 +78,21 @@ import { update_keyed_each } from "svelte/internal";
 		text-align: center;
 		float: center;
 	}
+	.chartGrowth h1{
+		font-size: 30px;
+		font-family:"Lucida Console", "Courier New", monospace;
+	}
 	.pieChart {
 		padding-left: 25%;
 		padding-right: 25%;
 		max-width: 50%;
 	} 
-	.chartGrowth p{
-		font-size: 30px;
+	.pieText{
+		text-align: center;
+		padding-top: 2rem;
+		float: center;
+		font-size: 25px;
+		font-family:"Lucida Console", "Courier New", monospace;
 	}
 	.counterText .trees{
 		margin: 0;
