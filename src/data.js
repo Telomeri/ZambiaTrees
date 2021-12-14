@@ -8,7 +8,8 @@ let data = [{
     pictures: ["here is the image?"]
   }];
 
-const addData = (id, coordinates, planter, plantDate, updateDate, growth, pictures) => {
+  //maybe pictures should be a dict as in {pictures: {date: new Date, collection: [blaa,blaa,blaa]}} ?
+const addData = (id, coordinates, planter, plantDate, updateDate, growth, pictures) => { 
     data.push({
         id: id,
         coordinates: coordinates,
