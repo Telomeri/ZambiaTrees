@@ -2,12 +2,12 @@ import DataScreen from './DataScreen.svelte';
 import Navbar from './Navbar.svelte'
 import initData from './data.js'
 
-const navbar = new Navbar({
+/*const homepage = new HomePage({
 	target: document.body,
 	props: {
-		name: 'world'
+		data: initData()
 	}
-});
+});*/
 
 const datascreen = new DataScreen({
 	target: document.body,
@@ -16,4 +16,4 @@ const datascreen = new DataScreen({
 	}
 });
 
-export default {datascreen, navbar};
+export default {datascreen};

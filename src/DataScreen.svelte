@@ -1,7 +1,7 @@
 <script>
 	import Chart from "svelte-frappe-charts";
 	import Counter from 'svelte-counter';
-	import { update_keyed_each } from "svelte/internal";
+	import Navbar from "./Navbar.svelte"
 	export let data;
 	//show the amount planted per person?
 	//show the amount planted and checked per month? as a heatmap?
@@ -27,6 +27,8 @@
 	let amountOfPictures = 0;
 	let oldestDate = new Date(Date.now());
 	let newestDate = new Date();
+	let updateIntervalYear = 1;
+	let plotType = { linePlot: false };
 	data.forEach((x,i) =>{
 		growthAmount[x.growth] += 1
 		if (x.planter in planterAmount) {
@@ -36,7 +38,7 @@
 			planterAmount[x.planter] = 1;
 		}
 		var diff = new Date(x.updateDate.getTime() - x.plantDate.getTime());
-		if ((diff.getUTCFullYear() - 1970) >= 1) {
+		if ((diff.getUTCFullYear() - 1970) >= updateIntervalYear) {
 			updated[1] += 1;
 		} 
 		else {
@@ -78,8 +80,7 @@
 		datasets: [{
 			values: plantedOnDate
 		}]
-	}
-
+	};
 	/*data = {
     yMarkers: [
         {
@@ -97,6 +98,7 @@
 	};
   </script>
   <body>
+	<Navbar barText={"Data"} />
 	<div class = "columns">
 		<div class="pieChart">
 			<h1 class="pieText">Trees that require an update</h1>
@@ -110,27 +112,50 @@
 			</Counter>
 		</div>		
 	</div>
-	<div class="chartPlanted">
-	<h1 class="pieText">Trees planted per month</h1>
-	<Chart data={plantDateData} type='line' 
-	axisOptions= {{
-		xIsSeries: true // default: false
-	}}
-	lineOptions = {{
-		heatline: 1,
-          regionFill: 1,
-          hideDots: 1,
-          hideLine: 0,
-	}}
-	colors={['#058C42']}
-	/>
-	</div>
+	{#if !plotType.linePlot}
+		<div class="chartPlanted">
+			<h1 class="pieText">Trees planted per month</h1>
+			<Chart data={plantDateData} type='line' 
+			axisOptions= {{
+				xIsSeries: true // default: false
+			}}
+			lineOptions = {{
+				heatline: 1,
+				regionFill: 1,
+				hideDots: 1,
+				hideLine: 0,
+			}}
+			colors={['#058C42']}
+			/>
+		</div>
+	{/if}
+	{#if plotType.linePlot}
+		<div class="chartPlanted">
+			<h1 class="pieText">Trees planted per month</h1>
+			<Chart data={plantDateData} type='line' 
+			axisOptions= {{
+				xIsSeries: true // default: false
+			}}
+			lineOptions = {{
+
+				hideDots: 0,
+				hideLine: 0,
+			}}
+			colors={['#058C42']}
+			/>
+		</div>
+	{/if}
+	<label class="checkMark">
+		<input type="checkbox" bind:checked={plotType.linePlot}>
+		Show as datapoints
+	</label>
 	<div class="chartGrowth">
 		<h1>Growth state</h1>
 		<Chart data={growthData} type='percentage' barOptions ={{height: 25, depth: 10}} colors={['#7F675B','#94FBAB','#058C42','#464e3c']} height={150} maxSlices = {5}/>
 	</div>
-	</body>
-	<style>
+</body>
+
+<style>
 
 	body {
 		background-color: #c9cfc0;
@@ -147,6 +172,13 @@
 	}
 	.columns {
 		column-count: 2;
+	}
+	.checkMark {
+		text-align: center;
+		float: center;
+		font-family:"Lucida Console", "Courier New", monospace;
+		font-size: 14px;
+		padding-bottom: 2rem;
 	}
 	.chartGrowth h1{
 		font-size: 20px;

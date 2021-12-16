@@ -1,5 +1,6 @@
 <script>
     export let menu = 1;
+    export let barText;
 </script>
 <style>
     :global(body) {
@@ -18,7 +19,7 @@
         text-align: center;
         padding: 0rem 1rem;
         text-decoration: none;
-        max-width: 5%;
+        max-width: 15%;
         font-size: 32px;
     }
     .navbar .backButton:hover {
@@ -29,8 +30,9 @@
     .navbar .dataTitle{
         float: right;
         color: #f2f2f2;
-        margin-right: 45%;
-        text-align: center;
+        text-align: right;
+        padding-right: 15
+        rem;
         text-decoration: none;
         font-size: 32px;
     }
@@ -42,5 +44,5 @@
 </style>
 <div class="navbar" style = "margin:0">
     <a class="backButton" href="/" on:click|preventDefault={() => (menu = 2)}>←</a>
-    <a class = "dataTitle" href="/">Data</a>
+    <a class = "dataTitle" href="/">{barText}</a>
 </div>
