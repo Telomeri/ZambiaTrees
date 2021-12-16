@@ -1,22 +1,31 @@
 <script>
+  import { Router, Link, Route } from "svelte-navigator";
+  import HomeScreen from './HomeScreen.svelte';
 	export let name;
 </script>
 
 <main>
-	<h1>Hello {name}!</h1>
-	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
+  <Router>
+    <Route path="map">
+      <p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
+    </Route>
+    <Route path="/">
+      <HomeScreen />
+    </Route>
+    <Route>
+      404 nothing here
+    </Route>
+  </Router>
 </main>
 
 <style>
 	main {
 		text-align: center;
-		padding: 1em;
-		max-width: 240px;
-		margin: 0 auto;
+		margin: 0;
 	}
 
 	h1 {
-		color: #ff3e00;
+		color: #05386B;
 		text-transform: uppercase;
 		font-size: 4em;
 		font-weight: 100;
