@@ -101,7 +101,7 @@
 	<Navbar barText={"Data"} />
 	<div class = "columns">
 		<div class="pieChart">
-			<h1 class="pieText">Trees that require an update</h1>
+			<h1 class="pieText">Trees requiring update</h1>
 			<Chart data={updateData} type='pie' maxSlices={2} height={300} colors={['#94FBAB','#464e3c']} />
 		</div>
 		<div class = "counterText">
@@ -150,7 +150,7 @@
 		Show as datapoints
 	</label>
 	<div class="chartGrowth">
-		<h1>Growth state</h1>
+		<h1>Trees growth state</h1>
 		<Chart data={growthData} type='percentage' barOptions ={{height: 25, depth: 10}} colors={['#7F675B','#94FBAB','#058C42','#464e3c']} height={150} maxSlices = {5}/>
 	</div>
 </body>

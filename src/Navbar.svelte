@@ -31,8 +31,7 @@
         float: right;
         color: #f2f2f2;
         text-align: right;
-        padding-right: 15
-        rem;
+        padding-right: 45%;
         text-decoration: none;
         font-size: 32px;
     }
