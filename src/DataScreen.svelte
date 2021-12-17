@@ -2,7 +2,10 @@
 	import Chart from "svelte-frappe-charts";
 	import Counter from 'svelte-counter';
 	import Navbar from "./Navbar.svelte"
-	export let data;
+  import initData from './data.js'
+	// export let data;
+
+  let data = initData();
 	//show the amount planted per person?
 	//show the amount planted and checked per month? as a heatmap?
 	//show a scatter plot of the coordinates??

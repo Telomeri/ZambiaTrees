@@ -1,19 +1,10 @@
-import DataScreen from './DataScreen.svelte';
-import Navbar from './Navbar.svelte'
-import initData from './data.js'
+import App from './App.svelte';
 
-/*const homepage = new HomePage({
+const app = new App({
 	target: document.body,
 	props: {
-		data: initData()
-	}
-});*/
-
-const datascreen = new DataScreen({
-	target: document.body,
-	props: {
-		data: initData()
+		name: 'world'
 	}
 });
 
-export default {datascreen};
+export default app;
