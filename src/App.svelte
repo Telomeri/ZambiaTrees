@@ -1,17 +1,10 @@
 <script>
     export let name;
     import Map from "./Map/Map.svelte";
-    import MapMarker from "./Map/MapMarker.svelte";
 </script>
 
 <div class="overlay">
     <Map lat={-15.908235} lon={25.957893} zoom={15}>
-        <MapMarker lat={-15.908235} lon={25.957893} label="Tree 1" />
-        <MapMarker
-            lat={-15.908235}
-            lon={25.96}
-            label="Tree 2"
-        />
     </Map>
 </div>
 
