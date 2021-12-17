@@ -43,6 +43,6 @@
 </style>
 
 <div class="navbar" style = "margin:0">
-    <a class="backButton" href="/" on:click|preventDefault={() => (menu = 2)}>←</a>
-    <a class = "dataTitle" href="/">{barText}</a>
+    <a class="backButton" href="/" >←</a>
+    <a class = "dataTitle" href="/data">{barText}</a>
 </div>
