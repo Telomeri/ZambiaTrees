@@ -1,11 +1,13 @@
 <script>
     export let name;
     import Map from "./Map/Map.svelte";
+    import { Router } from "svelte-navigator";
 </script>
 
-<div class="overlay">
-    <Map lat={-15.908235} lon={25.957893} zoom={15}>
-    </Map>
+<div class="fullscreen">
+    <Router>
+        <Map lat={-15.908235} lon={25.957893} zoom={15} />
+    </Router>
 </div>
 
 <style>
@@ -29,7 +31,7 @@
         }
     }
 
-    .overlay {
+    .fullscreen {
         position: fixed;
         width: 100%;
         height: 100%;

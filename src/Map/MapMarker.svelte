@@ -1,19 +1,29 @@
 <script>
-	import { getContext } from 'svelte';
-	import { mapbox, key } from './mapbox.js';
+    import { Marker } from "@beyonk/svelte-mapbox";
+    import { Button } from "sveltestrap";
+    import { useNavigate } from "svelte-navigator";
 
-	const { getMap } = getContext(key);
-	const map = getMap();
+    const navigate = useNavigate();
+    export let tree;
 
-	export let lat;
-	export let lon;
-	export let label;
+    function dateRepresentation(date) {
+        var mm = date.getMonth() + 1; // getMonth() is zero-based
+        var dd = date.getDate();
 
-	const popup = new mapbox.Popup({ offset: 25 })
-		.setText(label);
-
-	const marker = new mapbox.Marker()
-		.setLngLat([lon, lat])
-		.setPopup(popup)
-		.addTo(map);
+        return [
+            (dd > 9 ? "" : "0") + dd,
+            (mm > 9 ? "" : "0") + mm,
+            date.getFullYear()
+        ].join("/");
+    }
 </script>
+
+<Marker color="#38848a" lat={tree.coordinates[0]} lng={tree.coordinates[1]}>
+    <div class="content" slot="popup">
+        <h2>{"Tree " + tree.id}</h2>
+        <p>Planted: {dateRepresentation(tree.plantDate)}</p>
+        <p>Updated: {dateRepresentation(tree.updateDate)}</p>
+        <p>Growth stage: {tree.growth}</p>
+        <Button on:click={() => navigate("/trees/" + tree.id)}>Modify</Button>
+    </div>
+</Marker>
