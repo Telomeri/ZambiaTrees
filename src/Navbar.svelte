@@ -1,7 +1,18 @@
 <script>
-    export let menu = 1;
+    export let targetSlug;
     export let barText;
+
+
+    import { useNavigate } from "svelte-navigator";
+    const navigate = useNavigate();
+    const onBackButtonClick = () => {
+      targetSlug && navigate(targetSlug)
+    }
 </script>
+
+
+
+
 <style>
     :global(body) {
         margin: 0;
@@ -10,12 +21,16 @@
     .navbar{
         max-width: 100%;
         max-height: 20%;
+        height: 4rem;
         overflow: hidden;
-        background-color: #333;
+        color: #f2f2f2;
+        box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
+        /* background-color: #333; */
+
+        /* background-color:#8EE4AF; */
     }
     .navbar .backButton{
         float: left;
-        color: #f2f2f2;
         text-align: center;
         padding: 0rem 1rem;
         text-decoration: none;
@@ -29,7 +44,6 @@
     }
     .navbar .dataTitle{
         float: right;
-        color: #f2f2f2;
         text-align: right;
         padding-right: 45%;
         text-decoration: none;
@@ -43,6 +57,12 @@
 </style>
 
 <div class="navbar" style = "margin:0">
-    <a class="backButton" href="/" on:click|preventDefault={() => (menu = 2)}>←</a>
+    <a
+      class="backButton"
+      href="/"
+      on:click|preventDefault={onBackButtonClick}
+    >
+      ←
+    </a>
     <a class = "dataTitle" href="/">{barText}</a>
 </div>

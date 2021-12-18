@@ -2,7 +2,6 @@
   import { Router, Link, Route } from "svelte-navigator";
   import HomeScreen from './HomeScreen.svelte';
   import DataScreen from './DataScreen.svelte';
-  import initData from './data.js'
 </script>
 
 <main>

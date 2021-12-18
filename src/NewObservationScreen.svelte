@@ -1,31 +1,10 @@
 <script>
-  import { Col, Container, Row, Icon } from 'sveltestrap';
+  import { Container, Row, Icon, Figure, Image } from 'sveltestrap';
 	import { useNavigate } from "svelte-navigator";
 
 	const navigate = useNavigate();
+  const getImageSrc = (seed) => `https://picsum.photos/seed/${seed}/200/300`
 
-  const navOptions = [
-    {
-      name: 'Map', 
-      slug: '/map',
-      iconName: 'map'
-    },
-    {
-      name: 'Observations',
-      slug: '/observations',
-      iconName: 'eyeglasses'
-    },
-    {
-      name: 'History',
-      slug: '/history',
-      iconName: 'hourglass'
-    },
-    {
-      name: 'Data',
-      slug: '/data',
-      iconName: 'bar-chart-line'
-    }
-  ]
 </script>
 
 <svelte:head>
@@ -33,10 +12,11 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
 </svelte:head>
 
+<p>sus</p>
 <Container>
   <Row xs-12>
     <span class="welcome-message my-5">
-<h1>     welcome to tree app yes</h1>
+      <h1>     welcome to tree app yes</h1>
     </span>
   </Row>
   <Row cols={{xs: 1, sm: 2, lg: 4}}>
@@ -52,6 +32,7 @@
     {/each}
   </Row>
 </Container>
+
 
 <style>
   .asdfg {
@@ -76,23 +57,15 @@
     height: 100%;
     box-sizing: border-box;
     border: none;
-    /* box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1); */
-    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
-    /* transition: all 0.3s ease 0s; */
-  }
-
-  button:active {
-    /* background-color: #379683;; */
-    /* box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.1); */
-    box-shadow: rgba(0, 0, 0, 0.3) 0px 7px 13px -3px inset, rgba(0, 0, 0, 0.2) 0px 3px 0px inset; 
-    background-color: #C7CFBB;
-    /* transform: translateY(3px); */
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
   }
 
   button:hover {
-    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
-    background-color: #FAFFEE;
-    transform: translateY(-2px);
+    background-color: #379683;;
+    box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.1);
+    color: #EDF5E1;
+    transform: translateY(-3px);
   }
 
   button > span {
