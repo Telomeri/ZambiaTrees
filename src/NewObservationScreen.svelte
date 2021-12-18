@@ -3,7 +3,7 @@
 	import { useNavigate } from "svelte-navigator";
 
 	const navigate = useNavigate();
-  const getImageSrc = (seed) => `https://picsum.photos/seed/${seed}/200/300`
+  const getImageSrc = (seed) => `https://picsum.photos/seed/${seed}/300/300`
 
 </script>
 
@@ -15,21 +15,11 @@
 <p>sus</p>
 <Container>
   <Row xs-12>
-    <span class="welcome-message my-5">
-      <h1>     welcome to tree app yes</h1>
-    </span>
+    <div class="img-container">
+      <img class="img-fill" src={getImageSrc('sus')} />
+    </div>
   </Row>
   <Row cols={{xs: 1, sm: 2, lg: 4}}>
-    {#each navOptions as opt}
-      <div class="my-2 asdfg mt-lg-5"> 
-        <button role="link" on:click="{() => navigate(opt.slug)}">
-          <Icon class="mx-2" name={opt.iconName} />
-          <span>
-            {opt.name}
-          </span>
-        </button>
-      </div>
-    {/each}
   </Row>
 </Container>
 
@@ -38,6 +28,17 @@
   .asdfg {
     min-height: 80px;
     font-size: 1.3rem;
+  }
+
+  .img-container {
+    max-height: 60vh;
+  }
+
+  .img-fill {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+
   }
 
   :global(body) {
