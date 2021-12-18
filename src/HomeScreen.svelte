@@ -1,6 +1,7 @@
 <script>
   import { Col, Container, Row, Icon } from 'sveltestrap';
 	import { useNavigate } from "svelte-navigator";
+  import Navbar from "./Navbar.svelte"
 
 	const navigate = useNavigate();
 
@@ -33,11 +34,11 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
 </svelte:head>
 
-
+<Navbar  barText={"Home"}></Navbar>
 <Container>
   <Row xs-12>
     <span class="welcome-message my-5">
-<h1>     welcome to tree app yes</h1>
+<h1>     Welcome to Zambia Trees Initiative</h1>
 
     </span>
   </Row>
@@ -62,7 +63,7 @@
   }
 
   :global(body) {
-		background-color: #5CDB95 !important;
+		background-color: #7bb997 !important;
 	}
 
   .welcome-message {

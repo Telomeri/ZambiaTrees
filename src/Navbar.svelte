@@ -32,17 +32,13 @@
         color: #f2f2f2;
         text-align: right;
         padding-right: 45%;
+        margin: 0%;
         text-decoration: none;
         font-size: 32px;
-    }
-    .navbar .dataTitle:hover {
-        transition: background 300ms ease-in-out;
-        background-color: grey;
-        color: black;
     }
 </style>
 
 <div class="navbar" style = "margin:0">
     <a class="backButton" href="/" >←</a>
-    <a class = "dataTitle" href="/data">{barText}</a>
+    <p class ="dataTitle">{barText}</p>
 </div>
