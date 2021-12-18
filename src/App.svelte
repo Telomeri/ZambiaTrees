@@ -3,12 +3,13 @@
   import HomeScreen from './HomeScreen.svelte';
   import DataScreen from './DataScreen.svelte';
   import initData from './data.js'
+  import Map from "./Map/Map.svelte";
 </script>
 
 <main>
   <Router>
     <Route path="map">
-      <p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
+        <Map lat={-15.908235} lon={25.957893} zoom={15} />
     </Route>
     <Route path="data">
       <DataScreen />
@@ -35,9 +36,9 @@
 		font-weight: 100;
 	}
 
-	@media (min-width: 640px) {
-		main {
-			max-width: none;
-		}
-	}
+    @media (min-width: 640px) {
+        main {
+            max-width: none;
+        }
+    }
 </style>
