@@ -5,6 +5,7 @@
     import TreeScreen from "./TreeScreen.svelte";
     import initData from "./data.js";
     import Map from "./Map/Map.svelte";
+    import NewObservationScreen from "./NewObservationScreen.svelte";
 </script>
 
 <main>
@@ -17,6 +18,9 @@
         </Route>
         <Route path="trees/:id">
             <TreeScreen/>
+        </Route>
+        <Route path="observations">
+          <NewObservationScreen />
         </Route>
         <Route path="/">
             <HomeScreen />
