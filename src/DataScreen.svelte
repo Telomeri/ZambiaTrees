@@ -103,7 +103,7 @@
 </script>
 
 <body>
-	<Navbar barText={"Data"} />
+	<Navbar barText={"Data"} targetSlug="/"/>
 	<div class = "columns">
 		<div class="pieChart">
 			<h1 class="pieText">Requiring update</h1>

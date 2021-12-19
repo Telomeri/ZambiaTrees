@@ -48,7 +48,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@500&display=swap" rel="stylesheet"> 
 </svelte:head>
 
-<Navbar back_href="/map" barText={"Tree " + id} />
+<Navbar targetSlug="/map" barText={"Tree " + id} />
 <Container>
   <img
     alt="Tree {id}"

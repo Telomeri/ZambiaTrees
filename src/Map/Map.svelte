@@ -17,7 +17,6 @@
 
     onMount(() => {
         data = initData();
-        console.log(data);
     });
 
     function onReady() {}
@@ -29,7 +28,7 @@
 </script>
 
 <div>
-    <Navbar barText="Map" />
+    <Navbar barText="Map" targetSlug="/" />
     <div class="map">
         <Map
             accessToken="pk.eyJ1IjoidGh5dm9uZW4iLCJhIjoiY2tjYnN3NW5tMjd6NjJ2bWdscG1vNHNoeSJ9.OAMTF0xUTjnyRFdJVzJy5g"
