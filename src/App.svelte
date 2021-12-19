@@ -20,12 +20,12 @@
         <Route path="trees/:id">
             <TreeScreen/>
         </Route>
-        <Route path="observations">
+        <Route path="/observe/:id">
           <NewObservationScreen />
         </Route>
-        <Route path="sus">
+        <!-- <Route path="sus">
           <GrowthChangeForm />
-        </Route>
+        </Route> -->
         <Route path="/">
             <HomeScreen />
         </Route>

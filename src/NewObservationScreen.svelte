@@ -3,6 +3,7 @@
 	import { useNavigate } from "svelte-navigator";
   import { v4 as uuidv4 } from 'uuid';
   import Navbar from "./Navbar.svelte";
+  import GrowthChangeForm from './GrowthChangeForm.svelte';
 
 	const navigate = useNavigate();
   const getImageSrc = (seed) => `https://picsum.photos/seed/${seed}/800/800`
@@ -11,6 +12,9 @@
   const getNewImage = () => {
     randomSeed = uuidv4();
   }
+
+  let processStep = 0
+  let pictureTaken = false
 
   $: image_src = getImageSrc(randomSeed)
 </script>
@@ -27,25 +31,65 @@
       <img class="img-fill" alt="location" src={image_src} />
     </div>
   </Row>
-  <Row class="info-card mt-2">
-    <Col class="">
-      <div class="info-card">     
-        Can you locate this place in your surroundings? If you do not recognize the location, request another image.
-        <Row class="pt-3">
-          <Col>
-            <button class="asdfg" on:click={getNewImage}>
-              Show another image
-            </button> 
-          </Col>
-          <Col>
-            <button class="asdfg">
-              Yes
-            </button>  
-          </Col>
-        </Row>
-      </div>
-    </Col>
-  </Row>
+  {#if processStep === 0}
+    <Row class="info-card mt-2">
+      <Col class="">
+        <div class="info-card">     
+          Can you locate this place in your surroundings? If you do not recognize the location, request another image.
+          <Row class="pt-3">
+            <Col>
+              <button class="asdfg" on:click={getNewImage}>
+                Show another image
+              </button> 
+            </Col>
+            <Col>
+              <button class="asdfg" on:click={() => processStep = 1}>
+                Yes
+              </button>  
+            </Col>
+          </Row>
+        </div>
+      </Col>
+    </Row>
+  {:else if processStep === 1}
+    <GrowthChangeForm />
+    <button class="asdfg" on:click={() => processStep = 2}>
+      Confirm
+    </button>  
+  {:else}
+    <Row class="info-card mt-2">
+      <Col class="">
+        <div class="info-card">
+          {#if pictureTaken }     
+            Please submit the observation if you are satisfied with your picture
+          {:else}
+            Please take a new picture of the place shown above.
+          {/if}
+          <Row class="pt-3">
+            <Col>
+              <button class="asdfg" on:click={() => {
+                getNewImage()
+                pictureTaken = true;
+              }}>
+                {#if pictureTaken }     
+                  Re-take Picture
+                {:else}
+                  Take Picture
+                {/if}
+              </button> 
+            </Col>
+            {#if pictureTaken }
+            <Col>
+              <button class="asdfg" on:click={() => processStep = 3}>
+                Submit
+              </button>  
+            </Col>
+            {/if}
+          </Row>
+        </div>
+      </Col>
+    </Row>
+  {/if}
 </Container>
 
 
@@ -94,7 +138,7 @@
     border: none;
     text-align: center;
     /* box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1); */
-    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, #629478 0px -3px 0px inset;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
     /* transition: all 0.3s ease 0s; */
   }
 

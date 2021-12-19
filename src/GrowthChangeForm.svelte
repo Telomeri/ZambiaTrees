@@ -1,18 +1,6 @@
 <script>
   import { Container, Row, Col, Icon, Figure, Image } from 'sveltestrap';
 	import { useNavigate } from "svelte-navigator";
-  import { v4 as uuidv4 } from 'uuid';
-  import Navbar from "./Navbar.svelte";
-
-	const navigate = useNavigate();
-  const getImageSrc = (seed) => `https://picsum.photos/seed/${seed}/800/800`
-  let randomSeed = 'sus';
-
-  const getNewImage = () => {
-    randomSeed = uuidv4();
-  }
-
-  $: image_src = getImageSrc(randomSeed)
 </script>
 
 <svelte:head>
@@ -20,48 +8,35 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
 </svelte:head>
 
-<Navbar targetSlug="/" barText="sd" />
-<Container>
-  <Row xs-12 class="mt-1">
-    <div class="img-container">
-      <img class="img-fill" alt="location" src={image_src} />
+<Row class="info-card mt-2">
+  <Col class="">
+    <div class="info-card">     
+      How does the current situation compare to the picture?
+      Select one.
+    <Row cols={3} class="my-2">
+      <!-- <input type="radio" lass="btn-check" id="opt1" name="tree-growth-options">
+      <label class="btn btn-outline-success" for="btn-check-2-outlined">Checked</label><br>
+      <input type="radio" id="opt2" name="tree-growth-options">
+      <input type="radio" id="opt3" name="tree-growth-options">
+      <input type="radio" id="opt4" name="tree-growth-options"> -->
+      <Col>
+        <input type="radio" class="btn-check" name="options" id="option1" autocomplete="off">
+        <label class="asd asdfg" for="option1">cut down</label>
+      </Col>
+      <Col>
+        <input type="radio" class="btn-check" name="options" id="option2" autocomplete="off">
+        <label class="asd asdfg" for="option2">no change</label>
+      </Col>
+      <Col>
+        <input type="radio" class="btn-check" name="options" id="option3" autocomplete="off">
+        <label class="asd asdfg" for="option3">growth</label>
+      </Col>
+      </Row>
     </div>
-  </Row>
-  <Row class="info-card mt-2">
-    <Col class="">
-      <div class="info-card">     
-        How does the current situation compare to the picture?
-        Select one.
-
-      
-      <Row cols={3} class="my-2">
-        <!-- <input type="radio" lass="btn-check" id="opt1" name="tree-growth-options">
-        <label class="btn btn-outline-success" for="btn-check-2-outlined">Checked</label><br>
-        <input type="radio" id="opt2" name="tree-growth-options">
-        <input type="radio" id="opt3" name="tree-growth-options">
-        <input type="radio" id="opt4" name="tree-growth-options"> -->
-        <Col>
-          <input type="radio" class="btn-check" name="options" id="option1" autocomplete="off">
-          <label class="asd asdfg" for="option1">cut down</label>
-        </Col>
-        <Col>
-          <input type="radio" class="btn-check" name="options" id="option2" autocomplete="off">
-          <label class="asd asdfg" for="option2">no change</label>
-        </Col>
-        <Col>
-          <input type="radio" class="btn-check" name="options" id="option3" autocomplete="off">
-          <label class="asd asdfg" for="option3">growth</label>
-        </Col>
-        </Row>
-      </div>
-    </Col>
-  </Row>
-</Container>
-
+  </Col>
+</Row>
 
 <style>
-
-
   .img-container {
     max-height: 60vh;
   }
