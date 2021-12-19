@@ -26,11 +26,13 @@
 
 <Navbar targetSlug="/" barText="New " />
 <Container>
-  <Row xs-12 class="mt-1">
-    <div class="img-container">
-      <img class="img-fill" alt="location" src={image_src} />
-    </div>
-  </Row>
+  {#if processStep !== 3}
+    <Row xs-12 class="mt-1">
+      <div class="img-container">
+        <img class="img-fill" alt="location" src={image_src} />
+      </div>
+    </Row>
+  {/if}
   {#if processStep === 0}
     <Row class="info-card mt-2">
       <Col class="">
@@ -53,7 +55,7 @@
     </Row>
   {:else if processStep === 1}
     <GrowthChangeForm onSubmit={() => processStep = 2} />
-  {:else}
+  {:else if processStep === 2}
     <Row class="info-card mt-2">
       <Col class="">
         <div class="info-card">
@@ -86,6 +88,25 @@
         </div>
       </Col>
     </Row>
+  {:else}
+  <Row class="info-card mt-2">
+    <Col class="">
+      <div class="info-card">
+        Your observation has been submitted. Thanks for your work!
+      </div>
+    </Col>
+  </Row>
+
+
+  <Row class="">
+    <Col>
+      <button class="asdfg" on:click={() => navigate('/map')}>
+        Back to the map
+      </button>  
+    </Col>
+  </Row>
+
+
   {/if}
 </Container>
 
