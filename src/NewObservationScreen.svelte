@@ -52,10 +52,7 @@
       </Col>
     </Row>
   {:else if processStep === 1}
-    <GrowthChangeForm />
-    <button class="asdfg" on:click={() => processStep = 2}>
-      Confirm
-    </button>  
+    <GrowthChangeForm onSubmit={() => processStep = 2} />
   {:else}
     <Row class="info-card mt-2">
       <Col class="">

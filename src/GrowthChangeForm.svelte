@@ -1,6 +1,17 @@
 <script>
   import { Container, Row, Col, Icon, Figure, Image } from 'sveltestrap';
 	import { useNavigate } from "svelte-navigator";
+  export let onSubmit;
+
+  let selected = 'none';
+  let radioOptions = [
+    'cut down',
+    'no change',
+    'growth',
+  ]
+
+
+
 </script>
 
 <svelte:head>
@@ -19,7 +30,17 @@
       <input type="radio" id="opt2" name="tree-growth-options">
       <input type="radio" id="opt3" name="tree-growth-options">
       <input type="radio" id="opt4" name="tree-growth-options"> -->
+
+
+      {#each radioOptions as value}
+      <!-- <label><input type="radio" {value} bind:group={selected}> {value}</label> -->
       <Col>
+        <input type="radio" class="btn-check" name="options" id={value} {value} bind:group={selected}>
+        <label class="asd asdfg" for={value}>{value}</label>
+      </Col>
+
+      {/each}
+      <!-- <Col>
         <input type="radio" class="btn-check" name="options" id="option1" autocomplete="off">
         <label class="asd asdfg" for="option1">cut down</label>
       </Col>
@@ -30,11 +51,20 @@
       <Col>
         <input type="radio" class="btn-check" name="options" id="option3" autocomplete="off">
         <label class="asd asdfg" for="option3">growth</label>
-      </Col>
+      </Col> -->
       </Row>
     </div>
   </Col>
 </Row>
+
+{#if selected !== 'none'}
+  <Row>
+    <Col>
+  <button class="asdfg" on:click={onSubmit}>
+    Confirm
+  </button>  </Col>
+  </Row>
+{/if}
 
 <style>
   .img-container {
