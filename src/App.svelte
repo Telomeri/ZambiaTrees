@@ -2,6 +2,7 @@
     import { Router, Link, Route } from "svelte-navigator";
     import HomeScreen from "./HomeScreen.svelte";
     import DataScreen from "./DataScreen.svelte";
+    import TreeScreen from "./TreeScreen.svelte";
     import initData from "./data.js";
     import Map from "./Map/Map.svelte";
 </script>
@@ -13,6 +14,9 @@
         </Route>
         <Route path="data">
             <DataScreen />
+        </Route>
+        <Route path="trees/:id">
+            <TreeScreen/>
         </Route>
         <Route path="/">
             <HomeScreen />

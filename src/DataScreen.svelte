@@ -2,10 +2,10 @@
 	import Chart from "svelte-frappe-charts";
 	import Counter from 'svelte-counter';
 	import Navbar from "./Navbar.svelte"
-  import initData from './data.js'
+  	import initData from './data.js'
 	// export let data;
 
-  let data = initData();
+  	let data = initData();
 	//show the amount planted per person?
 	//show the amount planted and checked per month? as a heatmap?
 	//show a scatter plot of the coordinates??
@@ -32,6 +32,7 @@
 	let newestDate = new Date();
 	let updateIntervalYear = 1;
 	let plotType = { linePlot: false };
+
 	data.forEach((x,i) =>{
 		growthAmount[x.growth] += 1
 		if (x.planter in planterAmount) {
@@ -99,13 +100,14 @@
 		'planters' : Object.keys(planterAmount).length,
 		'pictures': amountOfPictures
 	};
-  </script>
-  <body>
+</script>
+
+<body>
 	<Navbar barText={"Data"} />
 	<div class = "columns">
 		<div class="pieChart">
-			<h1 class="pieText">Trees requiring update</h1>
-			<Chart data={updateData} type='pie' maxSlices={2} height={300} colors={['#94FBAB','#464e3c']} />
+			<h1 class="pieText">Requiring update</h1>
+			<Chart data={updateData} type='pie' maxSlices={2} height={300} colors={['#43671A','#464e3c']} />
 		</div>
 		<div class = "counterText">
 			<Counter values={counters} duration="2000" random="false" minspeed="10" let:counterResult>
@@ -117,7 +119,7 @@
 	</div>
 	{#if !plotType.linePlot}
 		<div class="chartPlanted">
-			<h1 class="pieText">Trees planted per month</h1>
+			<h1 class="pieText">Planted per month</h1>
 			<Chart data={plantDateData} type='line' 
 			axisOptions= {{
 				xIsSeries: true // default: false
@@ -128,23 +130,22 @@
 				hideDots: 1,
 				hideLine: 0,
 			}}
-			colors={['#058C42']}
+			colors={['#152106']}
 			/>
 		</div>
 	{/if}
 	{#if plotType.linePlot}
 		<div class="chartPlanted">
-			<h1 class="pieText">Trees planted per month</h1>
+			<h1 class="pieText">Planted per month</h1>
 			<Chart data={plantDateData} type='line' 
 			axisOptions= {{
 				xIsSeries: true // default: false
 			}}
 			lineOptions = {{
-
 				hideDots: 0,
 				hideLine: 0,
 			}}
-			colors={['#058C42']}
+			colors={['#152106']}
 			/>
 		</div>
 	{/if}
@@ -153,8 +154,8 @@
 		Show as datapoints
 	</label>
 	<div class="chartGrowth">
-		<h1>Trees growth state</h1>
-		<Chart data={growthData} type='percentage' barOptions ={{height: 25, depth: 10}} colors={['#7F675B','#94FBAB','#058C42','#464e3c']} height={150} maxSlices = {5}/>
+		<h1>Growth state</h1>
+		<Chart data={growthData} type='percentage' barOptions ={{height: 25, depth: 10}} colors={['#7F675B','#87C272','#43671A','#464e3c']} height={150} maxSlices = {5}/>
 	</div>
 </body>
 
