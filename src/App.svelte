@@ -6,6 +6,7 @@
     import initData from "./data.js";
     import Map from "./Map/Map.svelte";
     import NewObservationScreen from "./NewObservationScreen.svelte";
+    import GrowthChangeForm from "./GrowthChangeForm.svelte";
 </script>
 
 <main>
@@ -21,6 +22,9 @@
         </Route>
         <Route path="observations">
           <NewObservationScreen />
+        </Route>
+        <Route path="sus">
+          <GrowthChangeForm />
         </Route>
         <Route path="/">
             <HomeScreen />

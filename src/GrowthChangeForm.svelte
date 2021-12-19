@@ -20,7 +20,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
 </svelte:head>
 
-<Navbar targetSlug="/" barText="New " />
+<Navbar targetSlug="/" barText="sd" />
 <Container>
   <Row xs-12 class="mt-1">
     <div class="img-container">
@@ -30,18 +30,28 @@
   <Row class="info-card mt-2">
     <Col class="">
       <div class="info-card">     
-        Can you locate this place in your surroundings? If you do not recognize the location, request another image.
-        <Row class="pt-3">
-          <Col>
-            <button class="asdfg" on:click={getNewImage}>
-              Show another image
-            </button> 
-          </Col>
-          <Col>
-            <button class="asdfg">
-              Yes
-            </button>  
-          </Col>
+        How does the current situation compare to the picture?
+        Select one.
+
+      
+      <Row cols={3} class="my-2">
+        <!-- <input type="radio" lass="btn-check" id="opt1" name="tree-growth-options">
+        <label class="btn btn-outline-success" for="btn-check-2-outlined">Checked</label><br>
+        <input type="radio" id="opt2" name="tree-growth-options">
+        <input type="radio" id="opt3" name="tree-growth-options">
+        <input type="radio" id="opt4" name="tree-growth-options"> -->
+        <Col>
+          <input type="radio" class="btn-check" name="options" id="option1" autocomplete="off">
+          <label class="asd asdfg" for="option1">cut down</label>
+        </Col>
+        <Col>
+          <input type="radio" class="btn-check" name="options" id="option2" autocomplete="off">
+          <label class="asd asdfg" for="option2">no change</label>
+        </Col>
+        <Col>
+          <input type="radio" class="btn-check" name="options" id="option3" autocomplete="off">
+          <label class="asd asdfg" for="option3">growth</label>
+        </Col>
         </Row>
       </div>
     </Col>
@@ -50,6 +60,8 @@
 
 
 <style>
+
+
   .img-container {
     max-height: 60vh;
   }
@@ -76,13 +88,13 @@
     border-radius: 1rem;
   }
   .asdfg {
-    min-height: 80px;
-    font-size: 1.3rem;
-    font-weight: 700;
+    min-height: 40px;
+    font-size: 1.2rem;
+    font-weight: 600;
     text-align: center;
     margin: auto;
   }
-  button {
+  button, .asd {
     background-color: #EDF5E1;
     border-radius: 1rem;
     display: flex;
@@ -94,11 +106,11 @@
     border: none;
     text-align: center;
     /* box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1); */
-    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, #629478 0px -3px 0px inset;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
     /* transition: all 0.3s ease 0s; */
   }
 
-  button:active {
+  button:active, input[type="radio"]:checked+label {
     /* background-color: #379683;; */
     /* box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.1); */
     box-shadow: rgba(0, 0, 0, 0.3) 0px 7px 13px -3px inset, rgba(0, 0, 0, 0.2) 0px 3px 0px inset; 
@@ -106,7 +118,7 @@
     /* transform: translateY(3px); */
   }
 
-  button:hover {
+  button:hover, .asd:hover {
     box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
     background-color: #FAFFEE;
     transform: translateY(-2px);

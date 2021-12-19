@@ -34,19 +34,12 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
 </svelte:head>
 
-<<<<<<< HEAD
 <Navbar  barText={"Home"}></Navbar>
 <Container>
   <Row xs-12>
     <span class="welcome-message my-5">
 <h1>     Welcome to Zambia Trees Initiative</h1>
 
-=======
-<Container>
-  <Row xs-12>
-    <span class="welcome-message my-5">
-<h1>     welcome to tree app yes</h1>
->>>>>>> improve-styling
     </span>
   </Row>
   <Row cols={{xs: 1, sm: 2, lg: 4}}>

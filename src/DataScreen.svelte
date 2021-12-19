@@ -100,16 +100,10 @@
 		'planters' : Object.keys(planterAmount).length,
 		'pictures': amountOfPictures
 	};
-<<<<<<< HEAD
 </script>
 
 <body>
 	<Navbar barText={"Data"} />
-=======
-  </script>
-  <body>
-	<Navbar barText={"Data"} targetSlug={'/'} />
->>>>>>> improve-styling
 	<div class = "columns">
 		<div class="pieChart">
 			<h1 class="pieText">Requiring update</h1>
