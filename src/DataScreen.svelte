@@ -163,6 +163,7 @@
 
 	body {
 		background-color: #c9cfc0;
+    color: #0b1b4d;
 		width: 100%;
 		margin: 0px;
 		padding: 0px;
@@ -180,13 +181,13 @@
 	.checkMark {
 		text-align: center;
 		float: center;
-		font-family:"Lucida Console", "Courier New", monospace;
+		/* font-family:"Lucida Console", "Courier New", monospace; */
 		font-size: 14px;
 		padding-bottom: 2rem;
 	}
 	.chartGrowth h1{
 		font-size: 20px;
-		font-family:"Lucida Console", "Courier New", monospace;
+		/* font-family:"Lucida Console", "Courier New", monospace; */
 	}
 	.chartPlanted{
 		margin-left: 1%;
@@ -196,7 +197,7 @@
 	}
 	.chartPlanted h1{
 		font-size: 20px;
-		font-family:"Lucida Console", "Courier New", monospace;
+		/* font-family:"Lucida Console", "Courier New", monospace; */
 	}
 	.columns .pieChart {
 		max-width: 100%;
@@ -206,7 +207,7 @@
 		padding-top: 2rem;
 		float: center;
 		font-size: 20px;
-		font-family:"Lucida Console", "Courier New", monospace;
+		/* font-family:"Lucida Console", "Courier New", monospace; */
 	}
 	.counterText .trees{
 		margin: 0;
@@ -214,18 +215,18 @@
 		padding-top: 10rem;
 		float: center;
 		font-size: 30px;
-		font-family:"Lucida Console", "Courier New", monospace;
+		/* font-family:"Lucida Console", "Courier New", monospace; */
 	}
 	.counterText .pictures{
 		font-size: 20px;
 		float: center;
 		text-align: center;
-		font-family:"Lucida Console", "Courier New", monospace;
+		/* font-family:"Lucida Console", "Courier New", monospace; */
 	}
 	.counterText .planter{
 		font-size: 18px;
 		float: center;
 		text-align: center;
-		font-family:"Lucida Console", "Courier New", monospace;
+		/* font-family:"Lucida Console", "Courier New", monospace; */
 	}
 </style>

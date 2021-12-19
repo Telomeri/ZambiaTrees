@@ -79,15 +79,23 @@
     height: 100%;
     box-sizing: border-box;
     border: none;
-    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease 0s;
+    /* box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1); */
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    /* transition: all 0.3s ease 0s; */
+  }
+
+  button:active {
+    /* background-color: #379683;; */
+    /* box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.1); */
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 7px 13px -3px inset, rgba(0, 0, 0, 0.2) 0px 3px 0px inset; 
+    background-color: #C7CFBB;
+    /* transform: translateY(3px); */
   }
 
   button:hover {
-    background-color: #379683;;
-    box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.1);
-    color: #EDF5E1;
-    transform: translateY(-3px);
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    background-color: #FAFFEE;
+    transform: translateY(-2px);
   }
 
   button > span {

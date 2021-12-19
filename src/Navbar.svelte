@@ -1,16 +1,24 @@
 <script>
-  export let menu = 1;
-  export let back_href;
-  export let barText;
+    export let targetSlug;
+    export let barText;
+
+
+    import { useNavigate } from "svelte-navigator";
+    const navigate = useNavigate();
+    const onBackButtonClick = () => {
+      targetSlug && navigate(targetSlug)
+    }
 </script>
 
-<div class="navbar" style="margin:0">
-  {#if back_href}
-    <a class="backButton" href={back_href}>←</a>
-    {:else}
-    <a class="backButton" href="/">←</a>
-  {/if}
-  <p class="dataTitle">{barText}</p>
+<div class="navbar" style = "margin:0">
+    <a
+      class="backButton"
+      href="/"
+      on:click|preventDefault={onBackButtonClick}
+    >
+      ←
+    </a>
+    <a class = "dataTitle" href="/">{barText}</a>
 </div>
 
 <style>
@@ -22,7 +30,9 @@
     max-width: 100%;
     max-height: 20%;
     overflow: hidden;
+    border-radius: 0 0 1rem 1rem;
     background-color: #333;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
   }
   .navbar .backButton {
     float: left;
@@ -47,4 +57,4 @@
     text-decoration: none;
     font-size: 32px;
   }
-  </style>
+</style>
