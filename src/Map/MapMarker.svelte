@@ -5,6 +5,8 @@
 
     const navigate = useNavigate();
     export let tree;
+    const needsUpdate = Math.random() > 0.7 ? true : false;
+    const color = needsUpdate ? "#f24e4e" : "#38848a";
 
     function dateRepresentation(date) {
         var mm = date.getMonth() + 1; // getMonth() is zero-based
@@ -13,21 +15,23 @@
         return [
             (dd > 9 ? "" : "0") + dd,
             (mm > 9 ? "" : "0") + mm,
-            date.getFullYear()
-        ].join("/");
+            date.getFullYear(),
+        ].join(".");
     }
 </script>
 
-<Marker color="#38848a" lat={tree.coordinates[0]} lng={tree.coordinates[1]}>
+<Marker color={color} lat={tree.coordinates[0]} lng={tree.coordinates[1]}>
     <div class="content" slot="popup">
-        <h2>{"Tree " + tree.id}</h2>
         <h3>Planted</h3>
         <p>{dateRepresentation(tree.plantDate)}</p>
         <h3>Updated</h3>
         <p>{dateRepresentation(tree.updateDate)}</p>
         <h3>Growth stage</h3>
         <p>{tree.growth}</p>
-        <button class="btn-block" on:click={() => navigate("/trees/" + tree.id)}>Modify</button>
+        {#if needsUpdate}
+            <p><b>Requires update</b></p>
+        {/if}
+        <button on:click={() => navigate("/trees/" + tree.id)}>Details</button>
     </div>
 </Marker>
 
